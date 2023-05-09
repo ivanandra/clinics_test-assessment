@@ -9,6 +9,6 @@ router.use(function timeLog(req, res, next) {
     next()
 });
 
-router.get('/api/clinics/search/:searchParameter' , ClinicController.getAll);
+router.get('/api/clinics/search/:searchParams' , ClinicController.getAll);
 
 module.exports = router
