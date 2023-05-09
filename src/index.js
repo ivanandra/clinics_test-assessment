@@ -21,5 +21,5 @@ app.use(bodyParser.json());
 app.use(routes);
 
 app.listen(process.env.PORT || `${port}`, () => {
-  console.log(`Server Ivan Running at ${port} 🚀`);
+  console.log(`Server Running at ${port} 🚀`);
 });
