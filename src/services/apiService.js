@@ -2,10 +2,12 @@ const vetClinicsService = require('./vetClinicsService');
 const dentalClinicsService = require('./dentalClinicsService');
 
 const apiService = async (searchParams) => {
+
+  console.log('busca', searchParams);
+  
   const vetClinicsResult = await vetClinicsService();
   const dentalClinicsResult = await dentalClinicsService();
 
-  console.log('busca', searchParams);
   
   //filtering based on searchParameter
   const vetClinicsFiltered = vetClinicsResult.filter(obj => {

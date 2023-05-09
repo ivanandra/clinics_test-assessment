@@ -3,9 +3,8 @@ const apiService = require('../services/apiService');
 const self = (module.exports = {
     async getAll(req, res){
         try {
-            const searchParams = req.params.searchParams;
-            const searchParamsArray = searchParams.split(',').map(param => param.trim());
-            
+            const searchParams = req.query.searchParams;
+            const searchParamsArray = searchParams.split(',').map(param => param.trim());        
 
             console.log(searchParamsArray);
             
