@@ -1,12 +1,15 @@
 version: '3'
 services:
-  app:
+  web:
     build:
       context: .
       dockerfile: DockerFile
     ports:
-      - "${PORT:-3336}:3336"
+      - "3336:3336"
+    volumes:
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+      - ./.env:/app/.env 
     environment:
       - NODE_ENV=production
-      - PORT=${PORT:-3336}
     command: npm start
