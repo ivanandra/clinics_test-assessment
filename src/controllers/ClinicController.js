@@ -9,18 +9,15 @@ const self = (module.exports = {
             const availability = req.query.availability || [];
             let searchParams = [];
 
-            console.log(availability.length);
-
-
             if (availability.length > 0) {
               searchParams = [name, stateName, ...(availability ? availability.split(',') : [])].filter(param => param !== '');
             } else {
               searchParams = [name, stateName].filter(param => param !== '');;
             }
-            console.log(searchParams);
             
             const results = await apiService(searchParams);
             res.json(results);
+            
           } catch (error) {
             console.log(error);
             res.status(500).json({ message: 'Server Error' });
