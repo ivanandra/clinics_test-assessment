@@ -3,12 +3,23 @@ const apiService = require('../services/apiService');
 const self = (module.exports = {
     async getAll(req, res){
         try {
-            const searchParams = req.query.searchParams;
-            const searchParamsArray = searchParams.split(',').map(param => param.trim());        
-
-            console.log(searchParamsArray);
             
-            const results = await apiService(searchParamsArray);
+            const name = req.query.name || '';
+            const stateName = req.query.state || '';
+            const availability = req.query.availability || [];
+            let searchParams = [];
+
+            console.log(availability.length);
+
+
+            if (availability.length > 0) {
+              searchParams = [name, stateName, ...(availability ? availability.split(',') : [])].filter(param => param !== '');
+            } else {
+              searchParams = [name, stateName].filter(param => param !== '');;
+            }
+            console.log(searchParams);
+            
+            const results = await apiService(searchParams);
             res.json(results);
           } catch (error) {
             console.log(error);
