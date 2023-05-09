@@ -10,31 +10,31 @@ Send a GET request to:
 /api/clinics/search 
 With the following parameters in the query string:
 
-## name (optional): 
+### name (optional): 
 the name of the clinic to search for.
-## state (optional): 
+### state (optional): 
 the state where the clinic is located.
-## availability (optional): 
+### availability (optional): 
 the hours of availability at the clinic, in the format hh:mm (e.g. 09:00). Multiple availability times can be searched for by passing multiple parameters.
 
 If successful, the API will return a JSON object containing an array of clinic objects matching the search criteria.
 
 ### Example Request
 
-GET /api/clinics/search?name=Mayo%Clinic&state=New%20York&availability=09:00&availability=10:00
+GET /api/clinics/search?name=Mayo%Clinic&state=Florida&availability=09:00&availability=20:00
 
 ### Example Response
 
 {
-  "vetClinicsFiltered": [
+  "dentalClinicsFiltered": [
     {
-      "name": "PetCare Veterinary Clinic",
-      "address": "123 Main St",
-      "city": "New York",
-      "state": "New York",
-      "zip": "10001",
-      "availability": ["09:00", "10:00"]
+      "name": "Mayo Clinic",
+      "stateName": "Florida",
+      "availability": {
+                "from": "09:00",
+                "to": "20:00"
+            }
     }
   ],
-  "dentalClinicsFiltered": []
+  "vetClinicsFiltered": []
 }
