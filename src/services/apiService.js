@@ -2,12 +2,11 @@ const vetClinicsService = require('./vetClinicsService');
 const dentalClinicsService = require('./dentalClinicsService');
 
 const apiService = async (searchParams) => {
+  
   const vetClinicsResult = await vetClinicsService();
   const dentalClinicsResult = await dentalClinicsService();
 
-  console.log('busca', searchParams);
-  
-  //filtering based on searchParameter
+  //filtering based on searchParams
   const vetClinicsFiltered = vetClinicsResult.filter(obj => {
     return searchParams.some(param => {
       for(const prop in obj){
@@ -33,10 +32,7 @@ const apiService = async (searchParams) => {
       return false;
     })
   });
-
-
   return {
-    //TODO, Query to find the results on searchParameter
     vetClinicsFiltered,
     dentalClinicsFiltered,
   };
