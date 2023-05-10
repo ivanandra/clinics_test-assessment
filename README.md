@@ -1,9 +1,9 @@
 This is a REST API for searching veterinary and dental clinics based on location, name, and availability.
 
 ## Installation
-Clone the repository from GitHub.
-Install dependencies using npm i.
-Build and start the Docker containers using docker-compose up.
+Clone the repository from GitHub. 
+Build and start the Docker container using docker-compose up. 
+So all the required dependencies will be installed by runnning the docker container.
 
 ## Usage
 Send a GET request to: 
